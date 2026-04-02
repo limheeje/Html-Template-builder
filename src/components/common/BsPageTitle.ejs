@@ -1,0 +1,21 @@
+<%
+const {
+  title = '',
+  description = '',
+  listItems = []
+} = props || {}
+%>
+
+<h3 class="title-type-1"><%-title%></h3>
+<%_if(description){_%>
+<p class="txt-type-1"><%-description%></p>
+<%_}_%>
+
+<%#설명글이 목록형태일때%>
+<%_if(listItems.length){_%>
+<ul class="list-type-1">
+  <%_for(const i in listItems){_%>
+  <li><%-listItems[i].title%></li>
+  <%_}_%>
+</ul>
+<%_}_%>

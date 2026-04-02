@@ -1,0 +1,28 @@
+<%
+const {
+  useCardScanButton=true
+} = props || {}
+const {storeBankLogoItems} = JSON.parse(include($rootSrc('@/data/store.json')))
+%>
+
+
+<!-- ※ 현재 은행 리스트가 확정되지 않은 부분으로 추후에 수정해서 드리겠습니다.  -->
+<!-- img명은 제가 임의로 한부분입니다. 명칭통일이 필요하시면 말씀해 주세요. -->
+<!--  
+<%_for(const item of storeBankLogoItems){_%>
+  <%-item.codeName%> <%-item.codeFileName%>
+<%_}_%>
+ -->
+<!-- 200130 은행 선작업 수정 -->
+
+<ul class="list-bankType-1">
+  <!-- 선택되었을 때 a.active 추가 -->
+  <%_storeBankLogoItems.forEach((item, index)=>{_%>
+  <li>
+    <a href="#none" class="<%-!index?'active':''%>">
+      <span class="icon"><img src="<%-$staticSrc(`@/static/images/banklogo/${item.codeFileName}`)%>" alt="<%-item.codeName%> 로고"></span>
+      <span class="txt"><%-item.codeName%></span>
+    </a>
+  </li>
+  <%_})_%>
+</ul>

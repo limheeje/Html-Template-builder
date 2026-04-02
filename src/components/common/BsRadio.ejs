@@ -1,0 +1,21 @@
+<%
+const {
+  className = '',
+  items = [
+    //{id:'',name:'',checked:false,title:''}
+  ]
+} = props || {}
+%>
+<div class="ipt-radio-1 <%-className%>">
+  <%_if(items.length === 1){_%>
+  <input type="radio" id="<%-items[0].id%>" name="<%-items[0].name%>" <%-items[0].checked?'checked':''%>>
+  <label for="<%-items[0].id%>"><%-items[0].title%></label>
+  <%_}else{_%>
+  <%_for(const item of items){_%>
+  <div>
+    <input type="radio" id="<%-item.id%>" name="<%-item.name%>" <%-item.checked?'checked':''%>>
+    <label for="<%-item.id%>"><%-item.title%></label>
+  </div>
+  <%_}_%>
+  <%_}_%>
+</div>

@@ -1,0 +1,35 @@
+<%
+const {
+  className = '',
+  items= [
+    {
+      codeName: 'NH채움카드', 
+      codeImage: $staticSrc('@/static/images/logo_card_ci_nh.png'), 
+      codeNumber: '785******570'
+    }
+  ],
+  useNull = false
+} = props || {}
+%>
+<!-- 환불계좌 등록-->
+<ul class="refund-list <%-className%>">
+  <!-- 등록된 계좌 있을 때 -->
+  <%_for(const i in items){_%>
+  <li>
+    <figure>
+      <img src="<%-items[i].codeImage%>" alt="<%-items[i].codeName%>">
+      <figcaption class="txt-type-2 MT0"><%-items[i].codeName%></figcaption>
+    </figure>
+    <p class="txt-type-4 MT0"><%-items[i].codeNumber%></p>
+  </li>
+  <%_}_%>
+  <!-- // 등록된 계좌 있을 때 -->
+  <%_if(useNull){_%>
+  <!-- 등록된 계좌 없을 때 -->
+  <li>
+    <p class="txt-type-4 MT0">등록된 계좌가 없습니다.<br>환급 계좌를 등록해주세요.</p>
+  </li>
+  <!-- // 등록된 계좌 없을 때 -->
+  <%_}_%>
+</ul>
+<!-- // 환불계좌 등록-->

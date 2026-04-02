@@ -1,0 +1,58 @@
+<%#추가고객확인폼 템플릿%>
+<%
+const {
+  notiItems = [
+    {title: '고객확인 및 검증이 충분히 이루어지지 않을 경우 번개머니 고객확인 재이행이 거절될 수 있습니다.'},
+  ]
+} = props || {}
+%>
+
+<%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `추가 고객 확인`,
+        description: `강화된 고객확인제도 정책에 따라 개인정보 추가확인 및 신분증 확인이 필요합니다.<br>아래 정보를 입력 후 동의해주세요.`
+      }
+    })%>
+
+
+
+<!-- 고객확인 -->
+<ul class="list-type-3">
+  <li>
+    <label class="txt-type-2">자금원천</label>
+    <%-include($rootSrc('@/components/common/BsSelect'), {
+            props:{
+              slotOptionItems: ()=>`
+                 <option value="">선택</option>
+                 <option value="">근로/연금소득</option>
+              `,
+              surpportMessageError: '자금원천을 선택해주세요.'
+            }
+          })%>
+  </li>
+  <li>
+    <label class="txt-type-2">거래목적</label>
+    <%-include($rootSrc('@/components/common/BsSelect'), {
+            props:{
+              slotOptionItems: ()=>`
+                 <option value="">선택</option>
+                 <option value="">물품 등 사업상 대금결제</option>
+              `,
+              surpportMessageError: '거래목적을 선택해주세요.'
+            }
+          })%>
+  </li>
+</ul>
+<!-- // 고객확인 -->
+
+
+
+<!-- Notice Text -->
+<div>
+  <%-include($rootSrc('@/components/common/BsNoti'), {
+        props:{
+          listItems: notiItems
+        }
+      })%>
+</div>
+<!-- // Notice Text -->

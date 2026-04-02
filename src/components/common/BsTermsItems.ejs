@@ -1,0 +1,60 @@
+<%
+const {
+  className = '',
+  useAllAgreeCheck = true,
+  items = [
+  //{codeTitle:'', checked:false, notCheckbox:true}
+  ]
+} = props || {}
+%>
+<%_if(useAllAgreeCheck){_%>
+<script type="text/javascript">
+  $(document).ready(function() {
+    // 전체동의
+    $('.box-terms-agree .iptAgree').on('change', function() {
+      var $this = $(this),
+        $ipt = $this.parents('.box-terms-agree').find('.iptAgree:not(.total)'),
+        $iptTotal = $this.parents('.box-terms-agree').find('.iptAgree.total');
+
+      if ($this.hasClass('total')) {
+        if ($this.prop('checked') == true) {
+          $ipt.prop('checked', true);
+        } else {
+          $ipt.prop('checked', false);
+        };
+      } else {
+        if ($ipt.filter(':checked').length == $ipt.length) {
+          $iptTotal.prop('checked', true);
+        } else {
+          $iptTotal.prop('checked', false);
+        };
+      };
+    });
+
+  });
+</script>
+<%_}_%>
+<div class="box-terms-agree <%-className%>">
+  <dl>
+    <%_if(useAllAgreeCheck){_%>
+    <dt>
+      <input type="checkbox" id="iptAgreeTotal" class="ipt-check-1 iptAgree total" checked>
+      <label for="iptAgreeTotal"><span class="ico-check"><span></span></span>전체동의</label>
+    </dt>
+    <%_}_%>
+    <%_items.forEach((item, index) => {_%>
+    <dd>
+      <%_if(!item.notCheckbox){_%>
+      <input type="checkbox" id="iptAgree<%-index%>" class="ipt-check-2 iptAgree" <%-item.checked ? 'checked':''%>>
+      <%_}_%>
+      <label for="iptAgree<%-index%>" class="<%-item.notCheckbox ? 'PL32' : ''%>">
+        <span class="ico-check">
+          <span></span>
+        </span>
+        <%-item.codeTitle%>
+      </label>
+      <a href="#none" class="btn-more" title="<%-item.codeTitle%> 자세히 보기">보기</a>
+    </dd>
+    <%_})_%>
+  </dl>
+</div>

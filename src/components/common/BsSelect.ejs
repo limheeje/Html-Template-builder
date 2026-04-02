@@ -1,0 +1,20 @@
+<%
+const {
+  name = '',
+  id = '',
+  disabled = false,
+  inputDesignType = 'sel-type-1',
+  surpportMessageError = '',
+  slotOptionItems = ()=>''
+} = props || {}
+%>
+<div class="sel-type-1">
+  <%_if(slotOptionItems()){_%>
+  <select id="<%-id%>" name="<%-name%>" <%-disabled ? 'disabled' : ''%>>
+    <%-slotOptionItems(props)%>
+  </select>
+  <%_}_%>
+</div>
+<%_if(surpportMessageError){_%>
+<p class="text-error"><%-surpportMessageError%></p>
+<%_}_%>

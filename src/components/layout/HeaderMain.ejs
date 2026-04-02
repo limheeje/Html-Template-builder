@@ -1,0 +1,13 @@
+<%
+const {
+  title = '',
+  useBackButton = false,
+} = props || {}
+%>
+<div id="top">
+  <%_if(useBackButton){_%>
+  <a href="#none" class="btn-back"><span>뒤로가기</span></a>
+  <%_}_%>
+  <h2 class="title"><%-title%></h2>
+  <a href="#none" class="btn-close"><span>닫기</span></a>
+</div>

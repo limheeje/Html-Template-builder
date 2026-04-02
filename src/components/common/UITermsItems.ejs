@@ -1,0 +1,30 @@
+<%#
+번개머니 관련 공통 약관 템플릿
+[번개머니 가입, 고객확인 재이행, 보유한도 상향] 에서 "약관동의" 페이지로 활용중
+%>
+<%-include($rootSrc('@/components/common/BsTermsItems'), {
+    props: {
+      items:[
+        {checked:true, codeTitle:'만 14세 이상입니다. (필수)'},
+        {checked:true, codeTitle:'NHN KCP·번개장터 선불전자지급수단 서비스 이용 약관 (필수)'},
+        {checked:true, codeTitle:'개인정보 수집 및 이용 동의_번개머니 가입 (필수)'},
+        {checked:true, codeTitle:'개인정보 제3자 정보 제공 동의 (필수)'},
+        {codeTitle:'번개머니 서비스 이용 정책',notCheckbox:true},
+        {codeTitle:'선불충전금 보호조치에 대한 내용',notCheckbox:true},
+      ]
+    }
+  })%>
+
+
+<!-- Notice Text -->
+<div class="MT40">
+  <%-include($rootSrc('@/components/common/BsNoti'), {
+    props:{
+      listItems: [
+        {title: '전체 동의는 번개머니 이용을 위한 필수 동의사항이 포함되어 있습니다.'},
+        {title: '필수사항의 동의를 거부할 권리가 있습니다. 다만, 동의를 거부할 경우 번개머니 서비스 가입이 불가합니다.'},
+      ]
+    }
+  })%>
+</div>
+<!-- // Notice Text -->

@@ -1,0 +1,26 @@
+<%
+const {
+  type = 'text',
+  value = '',
+  name = '',
+  placeholder = '',
+  id = '',
+  disabled = false,
+  readonly = false,
+  required = false,
+  inputDesignType = 'ipt-type-3',
+  useAlignRight = false,
+  slotInputInnerArea = ()=>'',
+  surpportMessageError = ''
+} = props || {}
+%>
+
+<div class="<%-inputDesignType%> <%-useAlignRight ? 'align-right':''%>">
+  <input type="text" type="<%-type%>" id="<%-id%>" name="<%-name%>" placeholder="<%-placeholder%>" value="<%-value%>" <%-readonly ? 'readonly' : ''%> <%-disabled ? 'disabled' : ''%> <%-required ? 'required' : ''%>>
+  <%_if(slotInputInnerArea()){_%>
+  <%-slotInputInnerArea(props)%>
+  <%_}_%>
+</div>
+<%_if(surpportMessageError){_%>
+<p class="text-error"><%-surpportMessageError%></p>
+<%_}_%>

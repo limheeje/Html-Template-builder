@@ -1,0 +1,135 @@
+<%#고객확인폼 템플릿%>
+<%
+const {
+  notiItems = [
+    {title: '고객확인 및 검증이 충분히 이루어지지 않을 경우 번개머니 고객확인 재이행이 거절될 수 있습니다.'},
+    {title: '고객에 따라 신분증이 필요할 수 있습니다.'}
+  ]
+} = props || {}
+%>
+
+
+
+<%-include($rootSrc('@/components/common/BsPageTitle'), {
+  props: {
+    title : `고객 확인`,
+    description: `고객확인제도 정책에 따라 계좌 등록 전 개인정보 확인이 필요합니다.<br>아래의 정보를 확인 후 동의해주세요.`
+  }
+})%>
+
+<div>
+  <!-- 고객확인 -->
+  <ul class="list-type-3">
+    <li>
+      <label class="txt-type-2 MT0" for="username">한글 이름</label>
+      <%-include($rootSrc('@/components/common/BsInputField'), {
+            props:{
+              value: '유형우',
+              disabled: true,
+              id:'username',
+            }
+          })%>
+    </li>
+    <li>
+      <label class="txt-type-2 MT0" for="usernameeng">영문 이름</label>
+      <%-include($rootSrc('@/components/common/BsInputField'), {
+            props:{
+              id:'usernameeng',
+              surpportMessageError: '영문 이름을 입력해 주세요.'
+            }
+          })%>
+    </li>
+    <li>
+      <label class="txt-type-2 MT0" for="birthday">생년월일</label>
+      <%-include($rootSrc('@/components/common/BsInputField'), {
+            props:{
+              value: '920315',
+              disabled: true,
+              id:'birthday',
+            }
+          })%>
+    </li>
+    <li>
+      <label class="txt-type-2 MT0" for="sex">성별</label>
+      <%-include($rootSrc('@/components/common/BsInputField'), {
+            props:{
+              value: '남성',
+              disabled: true,
+              id:'sex',
+            }
+          })%>
+    </li>
+    <li>
+      <label class="txt-type-2 MT0" for="nationality">국적</label>
+      <%-include($rootSrc('@/components/common/BsSelect'), {
+            props:{
+              slotOptionItems: ()=>`
+                <option value="">대한민국</option>
+              `
+            }
+          })%>
+    </li>
+    <li>
+      <label class="txt-type-2 MT0" for="address">주소</label>
+      <%-include($rootSrc('@/components/common/BsInputAdressForm'),{
+            props: {
+              surpportMessageError: '주소를 입력해주세요.'
+            }
+          })%>
+    </li>
+    <li>
+      <label class="txt-type-2 MT0" for="local">국내거주 여부</label>
+      <%-include($rootSrc('@/components/common/BsRadio'),{
+            props: {
+              items: [
+                {id:'local',name:'residence',checked:true,title:'국내거주'},
+                {id:'overseas',name:'residence',title:'해외거주'},
+              ]
+            }
+          })%>
+    </li>
+    <!-- 해외거주 선택시 노출 -->
+    <li>
+      <label class="txt-type-2 MT0" for="country">거주국가</label>
+      <%-include($rootSrc('@/components/common/BsSelect'), {
+            props:{
+              slotOptionItems: ()=>`
+                <option value="">가나</option>
+              `
+            }
+          })%>
+    </li>
+    <!-- // 해외거주 선택시 노출 -->
+    <li>
+      <label class="txt-type-2 MT0" for="email">이메일</label>
+      <%-include($rootSrc('@/components/common/BsInputField'), {
+            props:{
+              id:'email',
+              surpportMessageError: '이메일을 입력해주세요.'
+            }
+          })%>
+    </li>
+    <li>
+      <label class="txt-type-2 MT0" for="job">직업/업종</label>
+      <%-include($rootSrc('@/components/common/BsSelect'), {
+            props:{
+              slotOptionItems: ()=>`
+                <option value="">대한민국</option>
+              `,
+              surpportMessageError: '직업/업종을 선택해주세요.'
+            }
+          })%>
+    </li>
+  </ul>
+  <!-- // 고객확인 -->
+
+  <!-- Notice Text -->
+  <div>
+    <%-include($rootSrc('@/components/common/BsNoti'), {
+            props:{
+              listItems: notiItems
+            }
+          })%>
+  </div>
+  <!-- // Notice Text -->
+</div>

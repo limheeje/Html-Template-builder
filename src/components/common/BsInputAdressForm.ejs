@@ -1,0 +1,14 @@
+<%
+const {
+  surpportMessageError = ''
+} = props || {}
+%>
+
+<div class="box-address">
+  <input type="text" id="address">
+  <button type="button">주소 검색</button>
+  <input type="text" id="addressDetail">
+</div>
+<%_if(surpportMessageError){_%>
+<p class="text-error"><%-surpportMessageError%></p>
+<%_}_%>

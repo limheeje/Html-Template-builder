@@ -1,0 +1,89 @@
+<%
+const {
+  useCardScanButton=true
+} = props || {}
+const {storeSecretCardLogoItems} = JSON.parse(include($rootSrc('@/data/store.json')))
+%>
+
+<div class="box-card-info">
+  <%_if(useCardScanButton){_%>
+  <button type="button" class="btn-type-5">카드 스캔하기</button>
+  <%_}_%>
+  <div class="box-ipt">
+    <div class="inner">
+      <p class="img-logo">
+        <!-- 수정 200518 (카드 CI 로고로 교체) -->
+        <!-- 카드 CI 로고 -->
+        <!-- [D] 이미지명은 임의로 만들었으며 명칭 통일이 필요하시면 말씀해주세요. -->
+        <!--
+          <%_for(const item of storeSecretCardLogoItems){_%>
+            <%-item.codeName%> <%-item.codeFileName%>
+          <%_}_%>
+        -->
+        <!-- //수정 200518 (카드 CI 로고로 교체) -->
+        <img src="<%-$staticSrc(`@/static/images/${storeSecretCardLogoItems[0].codeFileName}`)%>" alt="<%-storeSecretCardLogoItems[0].codeName%>">
+      </p>
+      <label for="iptCardNum1" class="title">카드번호</label>
+      <div class="box-ipt-card">
+        <div class="ipt-type-1">
+          <input type="text" id="iptCardNum1" aria-label="카드번호 첫번째 4자리" required="required" maxlength="4" inputmode="numeric" aria-invalid="false">
+          <span class="input-placeholder" aria-hidden="true">4자리</span>
+        </div>
+        <div class="ipt-type-1">
+          <input type="text" id="iptCardNum2" aria-label="카드번호 두번째 4자리" required="required" maxlength="4" inputmode="numeric" aria-invalid="false">
+          <span class="input-placeholder" aria-hidden="true">4자리</span>
+        </div>
+        <div class="ipt-type-1">
+          <input type="password" id="iptCardNum3" aria-label="카드번호 세번째 4자리" required="required" maxlength="4" inputmode="numeric" aria-invalid="false">
+          <span class="input-placeholder" aria-hidden="true">4자리</span>
+        </div>
+        <div class="ipt-type-1">
+          <input type="password" id="iptCardNum4" aria-label="카드번호 네번째 4자리" required="required" maxlength="4" inputmode="numeric" aria-invalid="false">
+          <span class="input-placeholder" aria-hidden="true">4자리</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-cols2">
+    <div class="col">
+      <div class="box-ipt">
+        <div class="inner">
+          <label for="iptValidDate1" class="title">유효기간</label>
+          <div class="box-ipt-date">
+            <div class="ipt-type-1 wd1">
+              <input type="password" id="iptValidDate1" aria-label="유효기간 MM" required="required" maxlength="2" inputmode="numeric">
+              <span class="input-placeholder" aria-hidden="true">MM</span>
+            </div>
+            <div class="txt-slash" aria-hidden="true">/</div>
+            <div class="ipt-type-1 wd1">
+              <input type="password" id="iptValidDate2" aria-label="유효기간 YY" required="required" maxlength="2" inputmode="numeric">
+              <span class="input-placeholder" aria-hidden="true">YY</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="box-ipt">
+        <div class="inner">
+          <label for="iptCVC" class="title">CVC</label>
+          <div class="ipt-type-1">
+            <input type="password" id="iptCVC" aria-label="CVC 숫자 3자리" required="required" maxlength="3" inputmode="numeric">
+            <span class="input-placeholder left" aria-hidden="true">숫자 3자리</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box-ipt">
+    <div class="inner">
+      <label for="iptPassword" class="title">비밀번호</label>
+      <div class="ipt-type-1">
+        <input type="password" id="iptPassword" aria-label="비밀번호 앞 2자리 숫자" required="required" maxlength="2" inputmode="numeric">
+        <span class="input-placeholder left" aria-hidden="true">앞 2자리 숫자</span>
+      </div>
+    </div>
+  </div>
+</div>

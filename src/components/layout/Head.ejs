@@ -1,0 +1,35 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <title><%-head?.title || 'prepaid'%></title>
+  <!-- 공통: font preload -->
+  <link rel="preload" href="<%-$staticSrc('@/static/font/NotoSansCJKkr-Regular.woff')%>" type="font/woff" as="font" crossorigin>
+  <link rel="preload" href="<%-$staticSrc('@/static/font/NotoSansCJKkr-Medium.woff')%>" type="font/woff" as="font" crossorigin>
+  <link rel="preload" href="<%-$staticSrc('@/static/font/NotoSansCJKkr-Bold.woff')%>" type="font/woff" as="font" crossorigin>
+  <!-- //공통: font preload -->
+  <!-- 공통: css -->
+  <link rel="stylesheet" href="<%-$staticSrc('@/static/css/style.css')%>">
+  <link rel="stylesheet" href="<%-$staticSrc('@/static/css/custom.css')%>"> <!-- 가맹점 수정영역 css -->
+  <!-- //공통: css -->
+  <%_if (head?.meta) {_%>
+  <%_for (let i in head.meta) {_%>
+  <meta name="<%- head.meta[i].name %>" property="<%- head.meta[i].property %>" content="<%- head.meta[i].content %>">
+  <%_}_%>
+  <%_}_%>
+  <%_if (head?.link) {_%>
+  <%_for (let i in head.link) {_%>
+  <link rel="<%- head.link[i].rel %>" href="<%- head.link[i].href %>">
+  <%_}_%>
+  <%_}_%>
+  <script type="text/javascript" src="<%-$staticSrc('@/static/js/jquery-1.12.4.min.js')%>"></script>
+  <script type="text/javascript" src="<%-$staticSrc('@/static/js/jquery.placeholder.min.js')%>"></script>
+  <script type="text/javascript" src="<%-$staticSrc('@/static/js/front.js')%>"></script>
+  <%_if (head?.script) {_%>
+  <%_for (let i in head.script) {_%>
+  <script src="<%- head.script[i].src %>"></script>
+  <%_}_%>
+  <%_}_%>
+
+
+</head>

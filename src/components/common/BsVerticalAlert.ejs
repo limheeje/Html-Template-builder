@@ -1,0 +1,13 @@
+<%
+const {
+  title = '',
+  iconType = '',
+  description = ''
+} = props || {}
+%>
+<div class="height-full grid-v-center">
+  <div>
+    <h3 class="title-type-1" data-icon-type="<%-iconType%>"><%-title%></h3>
+    <p class="txt-type-6"><%-description%></p>
+  </div>
+</div>

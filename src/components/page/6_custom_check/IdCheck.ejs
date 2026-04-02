@@ -1,0 +1,87 @@
+<%
+const {
+  type=''
+} = props || {}
+const localIsTypeId = type === 'id'
+%>
+
+<div>
+  <ul class="tab-list-radio MT40">
+    <li>
+      <input type="radio" id="idcard" name="idcard" <%-localIsTypeId?'checked':''%>>
+      <label for="idcard">주민등록증</label>
+    </li>
+    <li>
+      <input type="radio" id="driverlicense" name="idcard" <%-localIsTypeId?'':'checked'%>>
+      <label for="driverlicense">운전면허증</label>
+    </li>
+  </ul>
+
+  <div>
+    <div class="grid-pd-4">
+      <%_if(localIsTypeId){_%>
+      <img src="<%-$staticSrc('@/static/images/img_id.png')%>" alt="주민등록증 샘플 이미지">
+      <%_}else{_%>
+      <img src="<%-$staticSrc('@/static/images/img_drive.png')%>" alt="주민등록증 샘플 이미지">
+      <%_}_%>
+    </div>
+
+
+    <!-- 고객확인 -->
+    <ul class="list-type-3 MT0">
+      <li>
+        <%_if(localIsTypeId){_%>
+        <label class="txt-type-2 MT0" for="username">주민등록번호</label>
+        <div class="ipt-type-3 box-ipt-id">
+          <input type="text" id="id-first" value="920315" disabled>
+          <div>-</div>
+          <input type="text" id="id-end">
+        </div>
+        <p class="text-error">주민등록번호를 입력해주세요.</p>
+        <%_}else{_%>
+        <label class="txt-type-2 MT0" for="username">면허번호</label>
+        <div class="ipt-type-3 box-ipt-driverlicense">
+          <input type="text" id="driverlicense-first">
+          <div>-</div>
+          <input type="text" id="driverlicense-second">
+          <div>-</div>
+          <input type="text" id="driverlicense-third">
+          <div>-</div>
+          <input type="text" id="driverlicense-end">
+        </div>
+        <p class="text-error">면허번호를 입력해주세요.</p>
+        <%_}_%>
+
+      </li>
+      <li>
+        <label class="txt-type-2 MT0" for="issuedata">발급일자</label>
+        <div class="ipt-type-3">
+          <input type="text" id="issuedata" placeholder="숫자 8자리 입력">
+        </div>
+        <p class="text-error">발급일자를 입력해주세요.</p>
+      </li>
+      <li>
+        <label class="txt-type-2 MT0" for="file">첨부파일</label>
+        <div class="ipt-type-3">
+          <input type="file" id="file">
+          <p>파일 선택(신분증 촬영 이미지)</p>
+        </div>
+        <p class="text-error">신분증 이미지를 업로드해주세요.</p>
+      </li>
+    </ul>
+    <!-- // 고객확인 -->
+  </div>
+</div>
+
+<!-- Notice Text -->
+<div>
+  <%-include($rootSrc('@/components/common/BsNoti'), {
+        props:{
+          listItems: [
+            {title: '첨부파일은 최대 10MB까지 등록 가능합니다.'},
+            {title: 'png, jpg, jpeg, gif 파일형식만 첨부할 수 있습니다.'},
+          ]
+        }
+      })%>
+</div>
+<!-- // Notice Text -->

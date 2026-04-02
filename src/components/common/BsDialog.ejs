@@ -1,0 +1,27 @@
+<%
+const {
+  dataLayerName = '',
+  slot = ()=>''
+} = props || {}
+%>
+
+
+<!-- 열릴 팝업에 클래스와 여는 버튼에 data-layer="이름" 과 매칭 -->
+<div class="layer-pop <%-dataLayerName%>">
+  <div class="layer-inner">
+    <div class="layer-header"></div>
+    <div class="layer-body">
+      <div class="contents-box">
+        <%_if(slot()){_%>
+        <%-slot(props)%>
+        <%_}_%>
+      </div>
+    </div>
+    <div class="layer-footer">
+      <div class="btn-wrap">
+        <!-- [D] 비활성일경우 class disable 추가 -->
+        <a href="#none" class="btn-type-1">확인</a>
+      </div>
+    </div>
+  </div>
+</div>
