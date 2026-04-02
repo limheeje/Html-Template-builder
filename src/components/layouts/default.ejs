@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="<%-$currentLocale%>">
+<%- include($rootSrc('@/components/layout/Head')); %>
+
+<body>
+  <!-- 공통: skip -->
+  <ul class="skip">
+    <li><a href="#contents">본문 바로가기</a></li>
+  </ul>
+  <!-- //공통: skip -->
+  <!-- wrap -->
+  <div id="wrap">
+    <%- include($rootSrc('@/components/layout/HeaderMain'), {
+      props: {
+        ...data.headerSubInfo
+      }
+    }) %>
+    <%- body %>
+    <%- include($rootSrc('@/components/layout/Bottom'), {
+      props:{
+        ...data.bottomSubInfo
+      }
+    }); %>
+  </div>
+  <!-- //wrap -->
+
+
+</body>
+
+</html>
