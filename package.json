@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "dev": "concurrently \"npm run nodemon\" \"npm run browser-sync\"",
+    "build": "cross-env NODE_ENV=production node build",
+    "nodemon": "cross-env NODE_ENV=local nodemon",
+    "browser-sync": "cross-env NODE_ENV=local browser-sync start --config ./config/browser-sync.js"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.14",
+    "chokidar": "^3.6.0",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "i18n": "^0.15.1",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.7",
+    "prettier": "^3.2.5"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "@html-eslint/eslint-plugin": "^0.25.0",
+    "@html-eslint/parser": "^0.25.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^8.5.0"
+  }
+}
