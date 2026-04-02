@@ -1,0 +1,586 @@
+@import '_variable';
+@import '_mixin';
+@import '_function';
+
+%dimm {
+  background: #19191b;
+  opacity: 0.6;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+%headers {
+  position: sticky;
+  top: 0;
+  background: color('Common/White');
+  &.gray {
+    background: color('Gray/11');
+  }
+  z-index: 1000;
+
+  // 검색 헤더
+  &.search {
+    padding: 0;
+    .mb-inner {
+      .mb-lt {
+        margin-right: 0;
+        min-width: 24px;
+      }
+      .mb-rt {
+        flex: 1;
+        margin-left: 8px;
+        .bs-ipt-wrap {
+          width: 100%;
+        }
+      }
+    }
+    &::after {
+      display: none;
+    }
+
+  }
+
+  .head-content {
+    height: to-rem(60px);
+    display: flex;
+    align-items: center;
+    padding-left: $spacing-left;
+    padding-right: $spacing-right;
+  }
+  .head-bottom {
+  }
+  .mb-inner {
+    min-height: to-rem(28px);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    .mb-lt {
+      margin-right: auto;
+      min-width: to-rem(64px);
+      display: flex;
+      align-items: center;
+      .mb-btn + .mb-btn {
+        margin-right: to-rem(16px);
+      }
+      .h-tx {
+        @include font('T2/Bold');
+        color: color('Gray/01');
+        max-width: 100%;
+      }
+    }
+    .mb-ct {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: calc(100% - to-rem(64px) - to-rem(84px));
+    }
+    .mb-rt {
+      margin-left: auto;
+      min-width: to-rem(64px);
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      .mb-btn + .mb-btn {
+        margin-left: to-rem(16px);
+      }
+    }
+  }
+  .mb-ct {
+    @include text-ellipsis;
+    .h-tx {
+      @include font('Body1/Semibold');
+      color: color('Gray/01');
+      max-width: 100%;
+    }
+  }
+  .mb-btn {
+    width: to-rem(24px);
+    height: to-rem(24px);
+    border: none;
+    background-color: transparent;
+    &-bck {
+      background: no-repeat left center get-background-svg('icon_angle_left_thick', #{color('Gray/01')});
+      background-size: to-rem(11px);
+    }
+    &-close {
+      background: no-repeat center center get-background-svg('icon_close', #{color('Gray/01')});
+      background-size: 100%;
+    }
+    &-cal {
+      background: no-repeat center center get-background-svg('icon_calender_date', #{color('Gray/01')});
+      background-size: 100%;
+    }
+    &-search {
+      background: no-repeat center center get-background-svg('icon_search', #{color('Gray/01')});
+      background-size: 100%;
+    }
+    &-bookmark {
+      background: no-repeat center center get-background-svg('icon_bookmark_line', #{color('Gray/01')});
+      background-size: 100%;
+    }
+    &-share {
+      background: no-repeat center center get-background-svg('icon_share', #{color('Gray/01')});
+      background-size: 100%;
+    }
+    &-setting {
+      background: no-repeat center center url('../images/common/icon_setting.svg');
+      background-size: 100%;
+    }
+    &-select {
+      background: get-background-svg('icon_angle_small_down2', #{color('Gray/02')}) calc(100% - to-rem(6px)) 50% no-repeat;
+      background-size: to-rem(16px) to-rem(16px);
+      padding: to-rem(8px) to-rem(24px) to-rem(8px) to-rem(12px);
+      border: solid to-rem(1px) color('Gray/09');
+      border-radius: to-rem(32px);
+      color: color('Gray/03');
+      font-size: to-rem(12px);
+      width: auto;
+      height: 32px;
+    }
+
+    &-alarm {
+      position: relative;
+      &.on:after {
+        content: '';
+        width: to-rem(4px);
+        height: to-rem(4px);
+        border-radius: 50%;
+        background-color: color('Red/03');
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+  .m-lst {
+    display: flex;
+    align-items: center;
+    .m-t {
+      .mw-b {
+        border: none;
+        background: transparent;
+        display: flex;
+        .h-tx {
+          color: color('Gray/06');
+        }
+        &.active {
+          .h-tx {
+            color: color('Gray/01');
+          }
+        }
+      }
+      & + .m-t {
+        margin-left: to-rem(16px);
+      }
+    }
+  }
+}
+
+$CSS_BACKGROUND_COMMON_WHITE: 'background-white';
+$CSS_BACKGROUND_GRAY_01: 'background-gray-01';
+$CSS_BACKGROUND_GRAY_02: 'background-gray-02';
+$CSS_BACKGROUND_GRAY_03: 'background-gray-03';
+$CSS_BACKGROUND_GRAY_04: 'background-gray-04';
+$CSS_BACKGROUND_GRAY_05: 'background-gray-05';
+$CSS_BACKGROUND_GRAY_06: 'background-gray-06';
+$CSS_BACKGROUND_GRAY_07: 'background-gray-07';
+$CSS_BACKGROUND_GRAY_08: 'background-gray-08';
+$CSS_BACKGROUND_GRAY_09: 'background-gray-09';
+$CSS_BACKGROUND_GRAY_10: 'background-gray-10';
+$CSS_BACKGROUND_GRAY_11: 'background-gray-11';
+$CSS_BACKGROUND_BLUE_01: 'background-blue-01';
+$CSS_BACKGROUND_BLUE_02: 'background-blue-02';
+$CSS_BACKGROUND_BLUE_03: 'background-blue-03';
+$CSS_BACKGROUND_BLUE_04: 'background-blue-04';
+$CSS_BACKGROUND_BLUE_05: 'background-blue-05';
+$CSS_BACKGROUND_BLUE_06: 'background-blue-06';
+$CSS_BACKGROUND_BLUE_07: 'background-blue-07';
+$CSS_BACKGROUND_BLUE_08: 'background-blue-08';
+$CSS_BACKGROUND_BLUE_09: 'background-blue-09';
+$CSS_BACKGROUND_RED_01: 'background-red-01';
+$CSS_BACKGROUND_RED_02: 'background-red-02';
+$CSS_BACKGROUND_RED_03: 'background-red-03';
+$CSS_BACKGROUND_RED_04: 'background-red-04';
+$CSS_BACKGROUND_RED_05: 'background-red-05';
+$CSS_BACKGROUND_RED_06: 'background-red-06';
+$CSS_BACKGROUND_RED_07: 'background-red-07';
+$CSS_BACKGROUND_RED_08: 'background-red-08';
+$CSS_BACKGROUND_RED_09: 'background-red-09';
+$CSS_BACKGROUND_BADGE_P_BG: 'background-badge-p-bg';
+$CSS_BACKGROUND_BADGE_P_TXT: 'background-badge-p-txt';
+
+$CSS_COLOR_COMMON_WHITE: 'color-white';
+$CSS_COLOR_GRAY_01: 'color-gray-01';
+$CSS_COLOR_GRAY_02: 'color-gray-02';
+$CSS_COLOR_GRAY_03: 'color-gray-03';
+$CSS_COLOR_GRAY_04: 'color-gray-04';
+$CSS_COLOR_GRAY_05: 'color-gray-05';
+$CSS_COLOR_GRAY_06: 'color-gray-06';
+$CSS_COLOR_GRAY_07: 'color-gray-07';
+$CSS_COLOR_GRAY_08: 'color-gray-08';
+$CSS_COLOR_GRAY_09: 'color-gray-09';
+$CSS_COLOR_GRAY_10: 'color-gray-10';
+$CSS_COLOR_GRAY_11: 'color-gray-11';
+$CSS_COLOR_BLUE_01: 'color-blue-01';
+$CSS_COLOR_BLUE_02: 'color-blue-02';
+$CSS_COLOR_BLUE_03: 'color-blue-03';
+$CSS_COLOR_BLUE_04: 'color-blue-04';
+$CSS_COLOR_BLUE_05: 'color-blue-05';
+$CSS_COLOR_BLUE_06: 'color-blue-06';
+$CSS_COLOR_BLUE_07: 'color-blue-07';
+$CSS_COLOR_BLUE_08: 'color-blue-08';
+$CSS_COLOR_BLUE_09: 'color-blue-09';
+$CSS_COLOR_RED_01: 'color-red-01';
+$CSS_COLOR_RED_02: 'color-red-02';
+$CSS_COLOR_RED_03: 'color-red-03';
+$CSS_COLOR_RED_04: 'color-red-04';
+$CSS_COLOR_RED_05: 'color-red-05';
+$CSS_COLOR_RED_06: 'color-red-06';
+$CSS_COLOR_RED_07: 'color-red-07';
+$CSS_COLOR_RED_08: 'color-red-08';
+$CSS_COLOR_RED_09: 'color-red-09';
+$CSS_COLOR_BADGE_P_BG: 'color-badge-p-bg';
+$CSS_COLOR_BADGE_P_TXT: 'color-badge-p-txt';
+
+$CSS_BORDER_COLOR_COMMON_WHITE: 'border-color-white';
+$CSS_BORDER_COLOR_GRAY_01: 'border-color-gray-01';
+$CSS_BORDER_COLOR_GRAY_02: 'border-color-gray-02';
+$CSS_BORDER_COLOR_GRAY_03: 'border-color-gray-03';
+$CSS_BORDER_COLOR_GRAY_04: 'border-color-gray-04';
+$CSS_BORDER_COLOR_GRAY_05: 'border-color-gray-05';
+$CSS_BORDER_COLOR_GRAY_06: 'border-color-gray-06';
+$CSS_BORDER_COLOR_GRAY_07: 'border-color-gray-07';
+$CSS_BORDER_COLOR_GRAY_08: 'border-color-gray-08';
+$CSS_BORDER_COLOR_GRAY_09: 'border-color-gray-09';
+$CSS_BORDER_COLOR_GRAY_10: 'border-color-gray-10';
+$CSS_BORDER_COLOR_GRAY_11: 'border-color-gray-11';
+$CSS_BORDER_COLOR_BLUE_01: 'border-color-blue-01';
+$CSS_BORDER_COLOR_BLUE_02: 'border-color-blue-02';
+$CSS_BORDER_COLOR_BLUE_03: 'border-color-blue-03';
+$CSS_BORDER_COLOR_BLUE_04: 'border-color-blue-04';
+$CSS_BORDER_COLOR_BLUE_05: 'border-color-blue-05';
+$CSS_BORDER_COLOR_BLUE_06: 'border-color-blue-06';
+$CSS_BORDER_COLOR_BLUE_07: 'border-color-blue-07';
+$CSS_BORDER_COLOR_BLUE_08: 'border-color-blue-08';
+$CSS_BORDER_COLOR_BLUE_09: 'border-color-blue-09';
+$CSS_BORDER_COLOR_RED_01: 'border-color-red-01';
+$CSS_BORDER_COLOR_RED_02: 'border-color-red-02';
+$CSS_BORDER_COLOR_RED_03: 'border-color-red-03';
+$CSS_BORDER_COLOR_RED_04: 'border-color-red-04';
+$CSS_BORDER_COLOR_RED_05: 'border-color-red-05';
+$CSS_BORDER_COLOR_RED_06: 'border-color-red-06';
+$CSS_BORDER_COLOR_RED_07: 'border-color-red-07';
+$CSS_BORDER_COLOR_RED_08: 'border-color-red-08';
+$CSS_BORDER_COLOR_RED_09: 'border-color-red-09';
+$CSS_BORDER_COLOR_BADGE_P_BG: 'border-color-badge-p-bg';
+$CSS_BORDER_COLOR_BADGE_P_TXT: 'border-color-badge-p-txt';
+
+%css-background-color-set {
+  // 백그라운드설정:S
+  &.#{$CSS_BACKGROUND_COMMON_WHITE} {
+    background-color: color('Common/White');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_01} {
+    background-color: color('Gray/01');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_02} {
+    background-color: color('Gray/02');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_03} {
+    background-color: color('Gray/03');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_04} {
+    background-color: color('Gray/04');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_05} {
+    background-color: color('Gray/05');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_06} {
+    background-color: color('Gray/06');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_07} {
+    background-color: color('Gray/07');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_08} {
+    background-color: color('Gray/08');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_09} {
+    background-color: color('Gray/09');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_10} {
+    background-color: color('Gray/10');
+  }
+  &.#{$CSS_BACKGROUND_GRAY_11} {
+    background-color: color('Gray/11');
+  }
+  &.#{$CSS_BACKGROUND_BLUE_01} {
+    background-color: color('Blue/01');
+  }
+  &.#{$CSS_BACKGROUND_BLUE_02} {
+    background-color: color('Blue/02');
+  }
+  &.#{$CSS_BACKGROUND_BLUE_03} {
+    background-color: color('Blue/03');
+  }
+  &.#{$CSS_BACKGROUND_BLUE_04} {
+    background-color: color('Blue/04 (basic)');
+  }
+  &.#{$CSS_BACKGROUND_BLUE_05} {
+    background-color: color('Blue/05');
+  }
+  &.#{$CSS_BACKGROUND_BLUE_06} {
+    background-color: color('Blue/06');
+  }
+  &.#{$CSS_BACKGROUND_BLUE_07} {
+    background-color: color('Blue/07');
+  }
+  &.#{$CSS_BACKGROUND_BLUE_08} {
+    background-color: color('Blue/08');
+  }
+  &.#{$CSS_BACKGROUND_BLUE_09} {
+    background-color: color('Blue/09');
+  }
+  &.#{$CSS_BACKGROUND_RED_01} {
+    background-color: color('Red/01');
+  }
+  &.#{$CSS_BACKGROUND_RED_02} {
+    background-color: color('Red/02');
+  }
+  &.#{$CSS_BACKGROUND_RED_03} {
+    background-color: color('Red/03');
+  }
+  &.#{$CSS_BACKGROUND_RED_04} {
+    background-color: color('Red/04');
+  }
+  &.#{$CSS_BACKGROUND_RED_05} {
+    background-color: color('Red/05');
+  }
+  &.#{$CSS_BACKGROUND_RED_06} {
+    background-color: color('Red/06');
+  }
+  &.#{$CSS_BACKGROUND_RED_07} {
+    background-color: color('Red/07');
+  }
+  &.#{$CSS_BACKGROUND_RED_08} {
+    background-color: color('Red/08');
+  }
+  &.#{$CSS_BACKGROUND_RED_09} {
+    background-color: color('Red/09');
+  }
+  &.#{$CSS_BACKGROUND_BADGE_P_BG} {
+    background-color: color('Badge/P_bg');
+  }
+  &.#{$CSS_BACKGROUND_BADGE_P_TXT} {
+    background-color: color('Badge/P_txt');
+  }
+  // 백그라운드설정:E
+}
+%css-color-set {
+  // 컬러설정:S
+  &.#{$CSS_COLOR_COMMON_WHITE} {
+    color: color('Common/White');
+  }
+  &.#{$CSS_COLOR_GRAY_01} {
+    color: color('Gray/01');
+  }
+  &.#{$CSS_COLOR_GRAY_02} {
+    color: color('Gray/02');
+  }
+  &.#{$CSS_COLOR_GRAY_03} {
+    color: color('Gray/03');
+  }
+  &.#{$CSS_COLOR_GRAY_04} {
+    color: color('Gray/04');
+  }
+  &.#{$CSS_COLOR_GRAY_05} {
+    color: color('Gray/05');
+  }
+  &.#{$CSS_COLOR_GRAY_06} {
+    color: color('Gray/06');
+  }
+  &.#{$CSS_COLOR_GRAY_07} {
+    color: color('Gray/07');
+  }
+  &.#{$CSS_COLOR_GRAY_08} {
+    color: color('Gray/08');
+  }
+  &.#{$CSS_COLOR_GRAY_09} {
+    color: color('Gray/09');
+  }
+  &.#{$CSS_COLOR_GRAY_10} {
+    color: color('Gray/10');
+  }
+  &.#{$CSS_COLOR_GRAY_11} {
+    color: color('Gray/11');
+  }
+  &.#{$CSS_COLOR_BLUE_01} {
+    color: color('Blue/01');
+  }
+  &.#{$CSS_COLOR_BLUE_02} {
+    color: color('Blue/02');
+  }
+  &.#{$CSS_COLOR_BLUE_03} {
+    color: color('Blue/03');
+  }
+  &.#{$CSS_COLOR_BLUE_04} {
+    color: color('Blue/04 (basic)');
+  }
+  &.#{$CSS_COLOR_BLUE_05} {
+    color: color('Blue/05');
+  }
+  &.#{$CSS_COLOR_BLUE_06} {
+    color: color('Blue/06');
+  }
+  &.#{$CSS_COLOR_BLUE_07} {
+    color: color('Blue/07');
+  }
+  &.#{$CSS_COLOR_BLUE_08} {
+    color: color('Blue/08');
+  }
+  &.#{$CSS_COLOR_BLUE_09} {
+    color: color('Blue/09');
+  }
+  &.#{$CSS_COLOR_RED_01} {
+    color: color('Red/01');
+  }
+  &.#{$CSS_COLOR_RED_02} {
+    color: color('Red/02');
+  }
+  &.#{$CSS_COLOR_RED_03} {
+    color: color('Red/03');
+  }
+  &.#{$CSS_COLOR_RED_04} {
+    color: color('Red/04');
+  }
+  &.#{$CSS_COLOR_RED_05} {
+    color: color('Red/05');
+  }
+  &.#{$CSS_COLOR_RED_06} {
+    color: color('Red/06');
+  }
+  &.#{$CSS_COLOR_RED_07} {
+    color: color('Red/07');
+  }
+  &.#{$CSS_COLOR_RED_08} {
+    color: color('Red/08');
+  }
+  &.#{$CSS_COLOR_RED_09} {
+    color: color('Red/09');
+  }
+  &.#{$CSS_COLOR_BADGE_P_BG} {
+    color: color('Badge/P_bg');
+  }
+  &.#{$CSS_COLOR_BADGE_P_TXT} {
+    color: color('Badge/P_txt');
+  }
+  // 컬러설정:E
+}
+%css-border-color-set {
+  // 테두리컬러:S
+  &.#{$CSS_BORDER_COLOR_COMMON_WHITE} {
+    border-color: color('Common/White');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_01} {
+    border-color: color('Gray/01');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_02} {
+    border-color: color('Gray/02');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_03} {
+    border-color: color('Gray/03');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_04} {
+    border-color: color('Gray/04');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_05} {
+    border-color: color('Gray/05');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_06} {
+    border-color: color('Gray/06');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_07} {
+    border-color: color('Gray/07');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_08} {
+    border-color: color('Gray/08');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_09} {
+    border-color: color('Gray/09');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_10} {
+    border-color: color('Gray/10');
+  }
+  &.#{$CSS_BORDER_COLOR_GRAY_11} {
+    border-color: color('Gray/11');
+  }
+  &.#{$CSS_BORDER_COLOR_BLUE_01} {
+    border-color: color('Blue/01');
+  }
+  &.#{$CSS_BORDER_COLOR_BLUE_02} {
+    border-color: color('Blue/02');
+  }
+  &.#{$CSS_BORDER_COLOR_BLUE_03} {
+    border-color: color('Blue/03');
+  }
+  &.#{$CSS_BORDER_COLOR_BLUE_04} {
+    border-color: color('Blue/04 (basic)');
+  }
+  &.#{$CSS_BORDER_COLOR_BLUE_05} {
+    border-color: color('Blue/05');
+  }
+  &.#{$CSS_BORDER_COLOR_BLUE_06} {
+    border-color: color('Blue/06');
+  }
+  &.#{$CSS_BORDER_COLOR_BLUE_07} {
+    border-color: color('Blue/07');
+  }
+  &.#{$CSS_BORDER_COLOR_BLUE_08} {
+    border-color: color('Blue/08');
+  }
+  &.#{$CSS_BORDER_COLOR_BLUE_09} {
+    border-color: color('Blue/09');
+  }
+  &.#{$CSS_BORDER_COLOR_RED_01} {
+    border-color: color('Red/01');
+  }
+  &.#{$CSS_BORDER_COLOR_RED_02} {
+    border-color: color('Red/02');
+  }
+  &.#{$CSS_BORDER_COLOR_RED_03} {
+    border-color: color('Red/03');
+  }
+  &.#{$CSS_BORDER_COLOR_RED_04} {
+    border-color: color('Red/04');
+  }
+  &.#{$CSS_BORDER_COLOR_RED_05} {
+    border-color: color('Red/05');
+  }
+  &.#{$CSS_BORDER_COLOR_RED_06} {
+    border-color: color('Red/06');
+  }
+  &.#{$CSS_BORDER_COLOR_RED_07} {
+    border-color: color('Red/07');
+  }
+  &.#{$CSS_BORDER_COLOR_RED_08} {
+    border-color: color('Red/08');
+  }
+  &.#{$CSS_BORDER_COLOR_RED_09} {
+    border-color: color('Red/09');
+  }
+  &.#{$CSS_BORDER_COLOR_BADGE_P_BG} {
+    border-color: color('Badge/P_bg');
+  }
+  &.#{$CSS_BORDER_COLOR_BADGE_P_TXT} {
+    border-color: color('Badge/P_txt');
+  }
+  // 테두리컬러:E
+}
+%buttonColorSet {
+  @extend %css-background-color-set;
+  @extend %css-color-set;
+  @extend %css-border-color-set;
+}

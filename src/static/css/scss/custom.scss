@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+/*
+	※ 유의사항
+	- 가이드 문서 내 표기된 내용만 수정이 가능 하며, 그외 수정은 불가 합니다.
+	- 세부 내용은 가이드 참고 바랍니다.
+	- HTML 및 CSS는 NHN KCP의 허가 없이 배포하여 사용할 수 없습니다.
+*/
+
+/* 버튼 배경색 및 라운드각 크기(0 ~ 25) */
+.btn-type-1{background-color:#00c0f3;border-radius:0px;}
+
+/* 포커스 테두리 색 */
+.box-ipt.focus > .inner{border-color:#00c0f3;}
+
+/* [체크박스 1] */
+/* 테두리 라운드각 (0 ~ 25) */
+input[type="checkbox"].ipt-check-1 + label{border-radius:0px;}
+/* 테두리 색 */
+input[type="checkbox"].ipt-check-1:checked + label{border-color:#00c0f3;}
+/* 체크박스 라운드각 (0 ~ 11) */
+input[type="checkbox"].ipt-check-1 + label .ico-check{border-radius:0px;}
+/* 체크박스 배경색 */
+input[type="checkbox"].ipt-check-1:checked + label .ico-check{background-color:#00c0f3;}
+
+/* [체크박스 2] */
+/* 체크박스 색 */
+input[type="checkbox"].ipt-check-2:checked + label .ico-check > span:before,
+input[type="checkbox"].ipt-check-2:checked + label .ico-check > span:after{background-color:#00c0f3;}
+
+/* [체크박스 3] */
+/* 체크박스 라운드각 (0 ~ 11) */
+input[type="checkbox"].ipt-check-3 + label .ico-check{border-radius:0px;}
+/* 체크박스 배경색 */
+input[type="checkbox"].ipt-check-3:checked + label .ico-check{background-color:#00c0f3;}

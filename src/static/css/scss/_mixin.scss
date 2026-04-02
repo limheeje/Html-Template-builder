@@ -1,0 +1,210 @@
+@import '_function';
+@mixin hidden() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+@mixin text-ellipsis($lines: 1, $lineHeight: to-rem(20px)) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $lines == 1 {
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+    max-height: calc($lineHeight * $lines);
+  }
+}
+@mixin button() {
+  display: flex;
+  padding: 6px 14px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-30p);
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+@mixin font($s) {
+  letter-spacing: -0.01em;
+  @if $s == 'H1/Bold' {
+    font-size: to-rem(23px);
+    font-weight: 700;
+    line-height: to-rem(32.2px);
+  } @else if $s == 'T1/Bold' {
+    font-size: to-rem(20px);
+    font-weight: 700;
+    line-height: to-rem(28px);
+  }@else if $s == 'T3/Bold' {
+    font-size: to-rem(17px);
+    font-weight: 700;
+    line-height: to-rem(23.8px);
+  }@else if $s == 'T1/Semibold' {
+    font-size: to-rem(20px);
+    font-weight: 600;
+    line-height: to-rem(28px);
+  } @else if $s == 'T2/Bold' {
+    font-size: to-rem(18px);
+    font-weight: 700;
+    line-height: to-rem(25.2px);
+  } @else if $s == 'T2/Semibold' {
+    font-size: to-rem(18px);
+    font-weight: 600;
+    line-height: 140%;
+  } @else if $s == 'T3/Semibold' {
+    font-size: to-rem(17px);
+    font-weight: 600;
+    line-height: to-rem(23.8px);
+  } @else if $s == 'Body1/Bold' {
+    font-size: to-rem(16px);
+    font-weight: 700;
+    line-height: to-rem(22.4px);
+  } @else if $s == 'Body1/Semibold' {
+    font-size: to-rem(16px);
+    font-weight: 600;
+    line-height: to-rem(22.4px);
+  } @else if $s == 'Body1/Medium' {
+    font-size: to-rem(16px);
+    font-weight: 500;
+    line-height: to-rem(22.4px);
+  } @else if $s == 'Body2/Bold' {
+    font-size: to-rem(15px);
+    font-weight: 700;
+    line-height: to-rem(21px);
+  } @else if $s == 'Body2/Semibold' {
+    font-size: to-rem(15px);
+    font-weight: 600;
+    line-height: to-rem(21px);
+  } @else if $s == 'Body2/Medium' {
+    font-size: to-rem(15px);
+    font-weight: 500;
+    line-height: to-rem(21px);
+  } @else if $s == 'Body2/Regular' {
+    font-size: to-rem(15px);
+    font-weight: 400;
+    line-height: to-rem(21px);
+  } @else if $s == 'Body3/Bold' {
+    font-size: to-rem(14px);
+    font-weight: 700;
+    line-height: to-rem(19.6px);
+  } @else if $s == 'Body3/Semibold' {
+    font-size: to-rem(14px);
+    font-weight: 600;
+    line-height: to-rem(19.6px);
+  } @else if $s == 'Body3/Medium' {
+    font-size: to-rem(14px);
+    font-weight: 500;
+    line-height: to-rem(19.6px);
+  } @else if $s == 'Body4/Bold' {
+    font-size: to-rem(13px);
+    font-weight: 700;
+    line-height: to-rem(18.2px);
+  } @else if $s == 'Body5/Bold' {
+    font-size: to-rem(12px);
+    font-weight: 700;
+    line-height: 130%;
+    font-family: Pretendard;
+  } @else if $s == 'Body4/Semibold' {
+    font-size: to-rem(13px);
+    font-weight: 600;
+    line-height: to-rem(18.2px);
+  } @else if $s == 'Body4/Medium' {
+    font-size: to-rem(13px);
+    font-weight: 500;
+    line-height: to-rem(18.2px);
+  } @else if $s == 'Body4/Regular' {
+    font-size: to-rem(13px);
+    font-weight: 400;
+    line-height: to-rem(18.2px);
+  } @else if $s == 'Body5/Semibold' {
+    font-size: to-rem(12px);
+    font-weight: 600;
+    line-height: to-rem(15.6px);
+  } @else if $s == 'Body5/Medium' {
+    font-size: to-rem(12px);
+    font-weight: 500;
+    line-height: to-rem(15.6px);
+  } @else if $s == 'Body5/Regular' {
+    font-size: to-rem(12px);
+    font-weight: 400;
+    line-height: to-rem(15.6px);
+  } @else if $s == 'Body6/Bold' {
+    font-size: to-rem(12px);
+    font-weight: 400;
+    line-height: to-rem(15.6px);
+  } @else if $s == 'Body6/Semibold' {
+    font-size: to-rem(11px);
+    font-weight: 600;
+    line-height: to-rem(14.3px);
+  } @else if $s == 'Body6/Medium' {
+    font-size: to-rem(11px);
+    font-weight: 500;
+    line-height: to-rem(14.3px);
+  } @else if $s == 'Body6/Regular' {
+    font-size: to-rem(11px);
+    font-weight: 400;
+    line-height: to-rem(14.3px);
+  } @else if $s == 'Body7/Semibold' {
+    font-size: to-rem(10px);
+    font-weight: 600;
+    line-height: to-rem(13px);
+  } @else if $s == 'Body8/Semibold' {
+    font-size: to-rem(9px);
+    font-weight: 600;
+    line-height: to-rem(11.7px);
+  }
+}
+@mixin is-user-drag($bool){
+  @if $bool == false{
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: transparent;
+    -webkit-user-select: transparent;
+    -moz-user-select: transparent;
+    -ms-user-select: transparent;
+    user-select: transparent;
+  }@else{
+    -webkit-user-drag: auto;
+    -moz-user-select: auto;
+    -webkit-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    -webkit-tap-highlight-color: default;
+    -webkit-touch-callout: default;
+  }
+}
+
+// 미디어쿼리
+$breakpoint-mobile: 340px;
+$breakpoint-tablet: 640px;
+$breakpoint-desktop: 1024px;
+// 미디어쿼리 추가
+@mixin mobile {
+  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
