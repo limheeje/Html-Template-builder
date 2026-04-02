@@ -1,0 +1,40 @@
+<%
+defineExport({
+  head:{
+    title: '번개머니탈퇴_탈퇴안내'
+  },
+  data: {
+    headerSubInfo: {
+      title: "서비스 해지"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '취소',
+        },
+        {
+          codeName: '해지하기',
+          className: 'btn-type-6'
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `번개머니/간편결제 해지`,
+        listItems : [
+          {title: '보유한 번개머니 잔액이 모두 환급된 후 서비스 해지가 가능합니다.'},
+          {title: '해지 후 개인 정보는 즉시 파기되며, 전자금융거래 기록 등 법령상 보관 의무가 있는 거래내역 등은 5년간 보관됩니다. '}
+        ]
+      }
+    })%>
+  </div>
+</div>
+<!-- //contents -->

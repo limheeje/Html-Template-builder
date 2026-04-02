@@ -1,0 +1,32 @@
+<%
+defineExport({
+  head:{
+    title: '고객확인재이행 - 신분증정보확인(운전면허증)'
+  },
+  data: {
+    headerSubInfo: {
+      title: "고객확인 재이행",
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '확인',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <%- include($rootSrc('@/components/common/BsVerticalAlert'), {
+    props:{
+      iconType: 'check',
+      title: `고객확인 재이행 완료`,
+      description: `고객확인 재이행이 완료되었습니다.`
+    }
+  })%>
+</div>
+<!-- //contents -->

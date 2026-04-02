@@ -1,0 +1,82 @@
+<%
+defineExport({
+  head:{
+    title: '레이어팝업-케이스확인'
+  },
+  data: {
+    headerSubInfo: {
+      title: ""
+    },
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <a href="#none" class="btn-type-1" data-layer="layer-name">번개머니환급_얼럿</a><br />
+  <a href="#none" class="btn-type-1" data-layer="layer-name2">번개머니탈퇴_탈퇴안내_얼럿</a><br />
+  <a href="#none" class="btn-type-1" data-layer="layer-name3">고객확인 - 계좌번호X 얼럿</a><br />
+  <a href="#none" class="btn-type-1" data-layer="layer-name4">고객확인 - 입금자명X 얼럿</a><br />
+  <a href="#none" class="btn-type-1" data-layer="layer-name5">EDD수행(모바일신분증 확인)</a><br />
+</div>
+<!-- //contents -->
+
+<%- include($rootSrc('@/components/common/BsDialog'), {
+  props:{
+    dataLayerName: 'layer-name',
+    slot: ()=>`
+    <h2 class="layer-title">
+      환급 요청 금액이<br>
+      최소 환급 요청 금액보다 작습니다.<br>
+      환급 요청이 불가합니다.
+    </h2>`
+  }
+})%>
+<%- include($rootSrc('@/components/common/BsDialog'), {
+  props:{
+    dataLayerName: 'layer-name5',
+    slot: ()=>`
+    <h2 class="layer-title">
+      모바일 신분증 인증이<br>
+      완료되지 않았습니다.
+    </h2>`
+  }
+})%>
+<%- include($rootSrc('@/components/common/BsDialog'), {
+  props:{
+    dataLayerName: 'layer-name2',
+    slot: ()=>`<h2 class="layer-title">번개머니 잔액이 남아있습니다.<br>전액 환급 신청 후 해지 가능합니다.</h2>`
+  }
+})%>
+<%- include($rootSrc('@/components/common/BsDialog'), {
+  props:{
+    dataLayerName: 'layer-name3',
+    slot: ()=>`<h2 class="layer-title">계좌번호가 존재하지 않습니다.</h2>`
+  }
+})%>
+<%- include($rootSrc('@/components/common/BsDialog'), {
+  props:{
+    dataLayerName: 'layer-name4',
+    slot: ()=>`<h2 class="layer-title">입금자명이 일치하지 않습니다.</h2>`
+  }
+})%>
+
+
+
+
+<!-- 해당페이지: js -->
+<script type="text/javascript">
+  var layerPopOpen = function() {
+    var targetPop = $("." + this.dataset.layer)
+    targetPop.css('display', 'flex');
+  }
+  var layerPopClose = function() {
+    $(this).parents('.layer-pop').css('display', 'none')
+  }
+
+  // data-layer 에 오픈 할 layer 이름
+  $('[data-layer]').on('click', layerPopOpen)
+  $('.layer-pop .btn-wrap a').on('click', layerPopClose)
+</script>
+<!-- //해당페이지: js -->

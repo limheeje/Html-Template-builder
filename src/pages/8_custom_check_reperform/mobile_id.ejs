@@ -1,0 +1,67 @@
+<%
+defineExport({
+  head:{
+    title: '고객확인재이행 - 신분증정보확인(운전면허증)'
+  },
+  data: {
+    headerSubInfo: {
+      title: "고객확인 재이행",
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '인증하기',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `모바일 신분증 확인`,
+        description: `보유한 모바일 신분증을 준비해주세요.<br/>
+모바일 신분증 앱을 통해 인증이 완료됩니다.`
+      }
+    })%>
+
+    <div class="MT40">
+      <%-include($rootSrc('@/components/common/BsRadio'),{
+        props: {
+          className: 'MT0',
+          items: [
+            {id:'m1',name:'residence',checked:true,title:'모바일 운전면허증'},
+          ]
+        }
+      })%>
+      <%-include($rootSrc('@/components/common/BsRadio'),{
+        props: {
+          className: 'MT0',
+          items: [
+            {id:'m2',name:'residence',title:'모바일 주민등록증'},
+          ]
+        }
+      })%>
+    </div>
+
+
+
+    <!-- Notice Text -->
+    <div class="MT25">
+      <%-include($rootSrc('@/components/common/BsNoti'), {
+        props:{
+          listItems: [
+            {title: '모바일 신분증은 모바일 신분증 앱에 주민등록증 또는 운전면허증을 발급한 본인 인증이 가능합니다.'},
+          ]
+        }
+      })%>
+    </div>
+    <!-- // Notice Text -->
+  </div>
+</div>
+<!-- //contents -->

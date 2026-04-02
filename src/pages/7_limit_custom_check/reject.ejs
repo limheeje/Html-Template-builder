@@ -1,0 +1,33 @@
+<%
+defineExport({
+  head:{
+    title: '보유한도상향 - 거절'
+  },
+  data: {
+    headerSubInfo: {
+      title: "보유한도 상향"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '확인',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <%- include($rootSrc('@/components/common/BsVerticalAlert'), {
+    props:{
+      iconType: 'cancel',
+      title: `보유한도 상향 불가`,
+      description: `번개머니의 보유한도 상향이 불가합니다.<br>
+						고객센터에 문의해 주세요.`
+    }
+  })%>
+</div>
+<!-- //contents -->

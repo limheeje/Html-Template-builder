@@ -1,0 +1,39 @@
+<%
+defineExport({
+  head:{
+    title: '보유한도상향 - 약관동의'
+  },
+  data: {
+    headerSubInfo: {
+      title: "보유한도 상향",
+      useBackButton: true
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '다음',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `약관동의`,
+        description: `번개머니 보유한도를 상향하기 위해<br/>아래의 이용약관에 동의해주세요.`
+      }
+    })%>
+
+
+    <%-include($rootSrc('@/components/common/UITermsItems'))%>
+
+
+  </div>
+</div>
+<!-- //contents -->

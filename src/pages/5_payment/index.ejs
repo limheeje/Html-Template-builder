@@ -1,0 +1,49 @@
+<%
+defineExport({
+  head:{
+    title: '번개머니 카드등록'
+  },
+  data: {
+    headerSubInfo: {
+      title: "결제수단 추가",
+      useBackButton: true
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '다음',
+          disabled: true
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `카드정보 입력`,
+        description: `본인 명의의 신용/체크카드를 등록해 주세요.`
+      }
+    })%>
+
+
+    <%-include($rootSrc('@/components/common/BsCardRegisterTemplate'))%>
+    <%-include($rootSrc('@/components/common/BsTermsItems'), {
+      props: {
+        className: 'gap-2',
+        useAllAgreeCheck: false,
+        items:[
+          {codeTitle:'개인정보 수집 및 이용 동의_환급계좌 등록'}
+        ]
+      }
+    })%>
+
+
+  </div>
+</div>
+<!-- //contents -->

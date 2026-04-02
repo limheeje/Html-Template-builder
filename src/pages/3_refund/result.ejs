@@ -1,0 +1,68 @@
+<%
+defineExport({
+  head:{
+    title: '번개머니환급_환급결과 예상조회'
+  },
+  data: {
+    headerSubInfo: {
+      title: "번개머니 환급"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '환급 요청하기',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd PB32">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `번개머니 환급`,
+        description : `최종 환급 금액은 1-3영업일 이내 <br>환급 계좌로 환급 처리됩니다.`,
+      }
+    })%>
+    <div class="grid-pd-3 MT40">
+      <table class="tbl-type-2">
+        <tbody>
+          <tr>
+            <th>환급 요청 금액</th>
+            <td>200,000원</td>
+          </tr>
+          <tr>
+            <th>보유 잔액</th>
+            <td>3,000,000원</td>
+          </tr>
+          <tr>
+            <th>환급 수수료</th>
+            <td>0원</td>
+          </tr>
+          <tr>
+            <th>혜택 소멸 금액</th>
+            <td>10,000원</td>
+          </tr>
+          <tr>
+            <th>환급 불가 금액</th>
+            <td>10,000원</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th class="font-700">최종 환급 금액</th>
+            <td class="font-700 color-red">1,780,000원</td>
+          </tr>
+          <tr>
+            <th>환급 후 잔액</th>
+            <td>1,000,000원</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

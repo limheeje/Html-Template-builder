@@ -1,0 +1,32 @@
+<%
+defineExport({
+  head:{
+    title: '번개머니가입_제한이용안내'
+  },
+  data: {
+    headerSubInfo: {
+      title: "서비스 해지"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '확인',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <%- include($rootSrc('@/components/common/BsVerticalAlert'), {
+    props:{
+      iconType: 'pay',
+      title: `환급 요청 완료`,
+      description: `번개머니 환급 요청이 완료되었습니다.<br>환급은 1-3영업일 이내 처리됩니다.<br>환급처리 완료 후 서비스 해지를 요청해주세요.`
+    }
+  })%>
+</div>
+<!-- //contents -->

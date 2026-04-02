@@ -1,0 +1,38 @@
+<%
+defineExport({
+  head:{
+    title: '환급계좌 등록/변경_회원정보조회(계좌없음포함)'
+  },
+  data: {
+    headerSubInfo: {
+      title: "환급 계좌 등록/변경"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '환급 계좌 등록/변경하기',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `환급 계좌 관리`,
+        description : `보유한 번개머니 잔액은<br> 아래 은행 계좌로 환급 처리됩니다.`,
+      }
+    })%>
+    <%-include($rootSrc('@/components/common/BsCardTemplate'), {
+      props: {
+        useNull: true
+      }
+    })%>
+  </div>
+</div>
+<!-- //contents -->

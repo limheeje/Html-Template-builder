@@ -1,0 +1,32 @@
+<%
+defineExport({
+  head:{
+    title: '고객확인재이행 - 추가확인(에러메세지포함)'
+  },
+  data: {
+    headerSubInfo: {
+      title: "고객확인 재이행",
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '인증하기',
+          disabled: true
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+
+    <%-include($rootSrc('@/components/common/BsCustomAddConfirmForm'))%>
+
+  </div>
+</div>
+<!-- //contents -->

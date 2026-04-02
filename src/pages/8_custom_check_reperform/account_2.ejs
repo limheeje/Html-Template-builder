@@ -1,0 +1,67 @@
+<%
+defineExport({
+  head:{
+    title: '고객확인재이행 - 1원 입금확인'
+  },
+  data: {
+    headerSubInfo: {
+      title: "고객확인 재이행",
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '인증하기',
+          disabled: true
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `고객 확인`,
+        description: `입력하신 계좌로 1원을 입금하였습니다. <br>은행 계좌 거래내역 내 입금자명에 적힌 숫자 3자리를 확인하여 입력해주세요.`
+      }
+    })%>
+
+
+
+    <div class="MT40">
+      <img src="<%-$staticSrc('@/static/images/img_deposit.png')%>" alt="">
+    </div>
+
+    <ul class="list-type-3 MT25">
+      <li>
+        <label class="txt-type-2 MT0" for="username">입금자명</label>
+        <%-include($rootSrc('@/components/common/BsInputField'), {
+          props:{
+            id:'username',
+            placeholder: '숫자 3자리 입력',
+            surpportMessageError: '입금자명을 입력해주세요.'
+          }
+        })%>
+      </li>
+    </ul>
+    <!-- Notice Text -->
+    <div>
+      <%-include($rootSrc('@/components/common/BsNoti'), {
+        props:{
+          listItems: [
+            {title: '인증코드는 10분간 유효합니다.'},
+            {title: '계좌 인증 이체 횟수는 1일 5회까지 발송 제한 되어있습니다.'}
+          ]
+        }
+      })%>
+    </div>
+    <!-- // Notice Text -->
+
+  </div>
+</div>
+<!-- //contents -->

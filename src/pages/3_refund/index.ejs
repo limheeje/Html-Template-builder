@@ -1,0 +1,80 @@
+<%
+defineExport({
+  head:{
+    title: '번개머니환급_환급정보조회 및 금액입력'
+  },
+  data: {
+    headerSubInfo: {
+      title: "번개머니 환급"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '환급 요청하기',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd PB32">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `번개머니 환급 요청`,
+        description : `환급 요청한 번개머니 잔액은<br>아래 은행 계좌로 환급 처리됩니다.`,
+      }
+    })%>
+    <ul class="list-type-3">
+      <li>
+        <label class="txt-type-2 MT0" for="money">보유잔액</label>
+        <%-include($rootSrc('@/components/common/BsInputField'), {
+          props:{
+            value: '300,000',
+            disabled: true,
+            id:'money',
+            useAlignRight: true,
+            slotInputInnerArea: ()=> `<span>원</span>`
+          }
+        })%>
+      </li>
+      <li>
+        <label class="txt-type-2 MT0" for="money2">환급 요청 금액</label>
+        <%-include($rootSrc('@/components/common/BsInputField'), {
+          props:{
+            id:'money2',
+            slotInputInnerArea: ()=> `<span>원</span>`
+          }
+        })%>
+      </li>
+    </ul>
+  </div>
+  <%-include($rootSrc('@/components/common/BsDivision'))%>
+  <div class="grid-pd-2">
+    <h3 class="title-type-3">환급 계좌</h3>
+    <%-include($rootSrc('@/components/common/BsCardTemplate'), {
+      props: {
+        className: 'MT16',
+        useNull: true
+      }
+    })%>
+    <!-- // 환불계좌 등록-->
+    <div class="MT40">
+      <%-include($rootSrc('@/components/common/BsNoti'), {
+      props: {
+        title: '번개머니 환급 유의사항',
+        listItems: [
+          {title: '환급은 1회 최대 50만원 또는 200만원까지 요청 가능합니다.'},
+          {title: '환급은 본인 명의 계좌로만 가능합니다.'},
+          {title: '환급 시 환급 수수료가 부과될 수 있습니다.'},
+          {title: '환급 요청 금액은 1-3영업일 이내 환급 계좌로 처리됩니다.'}
+        ]
+      }
+    })%>
+    </div>
+  </div>
+</div>
+<!-- //contents -->

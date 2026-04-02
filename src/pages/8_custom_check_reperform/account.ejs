@@ -1,0 +1,61 @@
+<%
+defineExport({
+  head:{
+    title: '고객확인재이행 - 계좌정보입력 (에러메세지2개)'
+  },
+  data: {
+    headerSubInfo: {
+      title: "고객확인 재이행",
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '다음',
+          disabled: true
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `고객 확인`,
+        description: `본인 명의로 개설된 계좌정보를 입력해 주세요.<br>입력하신 계좌로 1원이 입금됩니다.<br>평생계좌번호, 가상계좌번호는 입력 불가합니다.`
+      }
+    })%>
+
+
+
+    <div class="account-info MT40">
+      <figure>
+        <img src="<%-$staticSrc('@/static/images/banklogo/logo_bank_ibk.png')%>" alt="기업은행 로고">
+        <figcaption class="txt-type-2 MT0">NH채움카드</figcaption>
+      </figure>
+      <p class="txt-type-4 MT0">예금주 <span>유형우</span></p>
+    </div>
+
+
+    <ul class="list-type-3 MT25">
+      <li>
+        <label class="txt-type-2 MT0" for="username">계좌번호</label>
+        <%-include($rootSrc('@/components/common/BsInputField'), {
+          props:{
+            id:'username',
+            placeholder: '‘-’ 없이 입력',
+            surpportMessageError: '계좌번호를 입력해주세요.<br/>계좌번호를 정확하게 입력해주세요.'
+          }
+        })%>
+      </li>
+    </ul>
+
+
+  </div>
+</div>
+<!-- //contents -->

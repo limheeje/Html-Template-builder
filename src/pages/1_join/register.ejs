@@ -1,0 +1,36 @@
+<%
+defineExport({
+  head:{
+    title: '번개머니가입_환급계좌 등록'
+  },
+  data: {
+    headerSubInfo: {
+      title: "번개머니 가입"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '등록하기',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `환급 계좌 등록`,
+        description : `인증된 아래 은행 계좌는 번개머니 잔액의 환급 계좌로 등록됩니다.`,
+      }
+    })%>
+    <%-include($rootSrc('@/components/common/BsCardTemplate'), {
+      props: {}
+    })%>
+  </div>
+</div>
+<!-- //contents -->

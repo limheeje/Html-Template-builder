@@ -1,0 +1,32 @@
+<%
+defineExport({
+  head:{
+    title: '환급계좌 등록/변경_요청 완료'
+  },
+  data: {
+    headerSubInfo: {
+      title: "환급 계좌 등록/변경"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '확인',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <%- include($rootSrc('@/components/common/BsVerticalAlert'), {
+    props:{
+      iconType: 'check',
+      title: `환급 계좌 등록/변경 완료`,
+      description: `환급 계좌의 등록/변경이 완료되었습니다.<br>환급을 요청하실 수 있습니다.`
+    }
+  })%>
+</div>
+<!-- //contents -->

@@ -1,0 +1,32 @@
+<%
+defineExport({
+  head:{
+    title: '고객확인 & 고객정보입력 (국내,해외 필드 모두 있음)'
+  },
+  data: {
+    headerSubInfo: {
+      title: "고객확인 재이행",
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '동의하기',
+          disabled: true
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+
+    <%-include($rootSrc('@/components/common/BsCustomConfirmForm'))%>
+
+
+  </div>
+</div>
+<!-- //contents -->

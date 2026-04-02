@@ -1,0 +1,32 @@
+<%
+defineExport({
+  head:{
+    title: '고객확인재이행 - 은행선택'
+  },
+  data: {
+    headerSubInfo: {
+      title: "고객확인 재이행",
+    },
+  }
+}).bind()
+%>
+
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `고객 확인`,
+        description: `본인 명의로 개설된 계좌의 은행을 선택해주세요.`
+      }
+    })%>
+    <div>
+      <%-include($rootSrc('@/components/common/BsCardComponyTemplate'))%>
+    </div>
+
+
+  </div>
+</div>
+<!-- //contents -->

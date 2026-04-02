@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no">
+  <title>선불-번개장터</title>
+  <!--[if lt IE 9]>
+  <script type="text/javascript">
+  document.createElement("section");
+  document.createElement("header");
+  document.createElement("footer");
+  </script>
+  <![endif]-->
+  <style>
+    @charset "utf-8";
+
+    body,
+    p,
+    h1,
+    h2,
+    h3,
+    ul,
+    ol,
+    li,
+    dl,
+    dt,
+    dd {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      position: relative;
+      padding: 0 14px;
+      background-color: #fff;
+      font-size: 14px;
+      color: #000;
+      line-height: 1.25em;
+      font-family: '나눔고딕', NanumGothic, '맑은 고딕', 'Malgun Gothic', '돋움', Dotum, Helvetica;
+      -webkit-text-size-adjust: none;
+      word-wrap: break-word;
+      word-break: break-all
+    }
+
+    img,
+    fieldset {
+      border: 0
+    }
+
+    ul,
+    ol {
+      list-style: none
+    }
+
+    a {
+      color: #000;
+      text-decoration: none
+    }
+
+    header {
+      padding: 1em 4em .9em .1em;
+      border-bottom: 3px solid #222
+    }
+
+    #ct {
+      clear: both;
+      width: 100%;
+      background-color: #fff
+    }
+
+    #ct:after {
+      display: block;
+      clear: both;
+      height: 1px;
+      margin-top: -1px;
+      content: ''
+    }
+
+    .hd_h1 {
+      font-size: 1.2em
+    }
+
+    #ct p.desc {
+      font-weight: normal;
+      font-size: 0.9em;
+      color: #909090;
+      line-height: 1.6em;
+      display: inline-block;
+    }
+
+    #ct h2 {
+      clear: both;
+      padding: 2em .1em .4em;
+      border-bottom: 1px solid #000;
+      font-size: 1em
+    }
+
+    #ct h3 {
+      clear: both;
+      padding: 0.8em;
+      border-bottom: 1px dotted #888;
+      font-size: 1em;
+      background-color: #f4f4f4;
+      font-weight: normal;
+    }
+
+    ul {
+      font-size: .9em
+    }
+
+    li {
+      border-bottom: 1px solid #dfdfdf
+    }
+
+    li a {
+      display: block;
+      padding: .7em 31px .6em .1em;
+      background: url(http://static.naver.com/www/m/cm/im/bu_lk.gif) no-repeat 100% 50%;
+      _zoom: 1
+    }
+
+    li span {
+      margin-left: .8em;
+      font-size: .86em;
+      color: #909090
+    }
+
+    li em {
+      margin-left: .8em;
+      font-size: .86em;
+      color: crimson;
+      font-weight: bold
+    }
+
+    dl {
+      font-size: .9em;
+      border-bottom: 1px solid #dfdfdf
+    }
+
+    dl a {
+      display: block;
+      padding: .7em 31px .6em .1em;
+      background: url(http://static.naver.com/www/m/cm/im/bu_lk.gif) no-repeat 100% 50%;
+      _zoom: 1
+    }
+
+    dt {
+      margin-left: .8em;
+      font-size: .86em;
+      color: #909090
+    }
+
+    .new {
+      color: red;
+      font-weight: 700
+    }
+
+    .edit {
+      color: blue;
+      font-weight: 700
+    }
+
+    dd {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      font-size: 0;
+      line-height: 100px;
+      white-space: nowrap
+    }
+
+    footer {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+
+<% const extname = process.env.NODE_ENV === 'local' ? '' : '.html' %>
+
+<body>
+  <header role="banner">
+    <h1 class="hd_h1">번개머니 선불결제</h1>
+  </header>
+  <div id="ct">
+    <div>
+      <h2>번개머니 가입</h2>
+      <dl>
+        <dt><a href="./1_join/limit<%-extname%>">번개머니가입_이용불가안내</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./1_join/finish<%-extname%>">번개머니가입_제한이용안내</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./1_join/finish_2<%-extname%>">번개머니가입_회원가입 완료</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./1_join/register<%-extname%>">번개머니가입_환급계좌 등록</a></dt>
+      </dl>
+    </div>
+
+    <div>
+      <h2>번개머니 환급계좌 등록/변경</h2>
+      <dl>
+        <dt><a href="./2_account/manage<%-extname%>">환급계좌 등록/변경_회원정보조회(계좌없음포함)</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./2_account/finish<%-extname%>"> 환급계좌 등록/변경_요청 완료</a></dt>
+      </dl>
+    </div>
+
+    <div>
+      <h2>번개머니 번개머니 환급</h2>
+      <dl>
+        <dt><a href="./3_refund/index<%-extname%>">번개머니환급_환급정보조회 및 금액입력</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./3_refund/result<%-extname%>">번개머니환급_환급결과 예상조회</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./3_refund/finish<%-extname%>">번개머니환급_환급 요청완료</a></dt>
+      </dl>
+    </div>
+
+    <div>
+      <h2>번개머니 카드등록</h2>
+      <dl>
+        <dt><a href="./5_payment/index<%-extname%>">카드등록</a></dt>
+      </dl>
+    </div>
+
+    <div>
+      <h2>번개머니 탈퇴</h2>
+      <dl>
+        <dt><a href="./4_withdrawal/index<%-extname%>">번개머니탈퇴_탈퇴안내 </a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./4_withdrawal/finish<%-extname%>">번개머니탈퇴_탈퇴완료</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./4_withdrawal/finish2<%-extname%>">번개머니탈퇴_환급요청완료</a></dt>
+      </dl>
+    </div>
+
+    <div>
+      <h2>고객확인</h2>
+      <dl>
+        <dt><a href="./6_custom_check/index<%-extname%>">고객확인 & 고객정보입력 (국내,해외 필드 모두 있음) </a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./6_custom_check/bank<%-extname%>">고객확인 - 은행선택 </a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./6_custom_check/account<%-extname%>">고객확인 - 계좌정보입력 (에러메세지2개)</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./6_custom_check/account_2<%-extname%>">고객확인 - 1원 입금확인</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./6_custom_check/add<%-extname%>">고객확인 - 추가 고객 확인</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./6_custom_check/id<%-extname%>">고객확인 - 신분증정보확인(주민등록증)</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./6_custom_check/drive<%-extname%>">고객확인 - 신분증정보확인(운전면허증)</a></dt>
+      </dl>
+    </div>
+    <div>
+      <h2>고객확인재이행</h2>
+      <dl>
+        <dt><a href="./8_custom_check_reperform/agree<%-extname%>">고객확인재이행 - 약관동의 </a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./8_custom_check_reperform/index<%-extname%>">고객확인재이행 - 고객확인 & 고객정보입력 (국내,해외 필드 모두 있음) </a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./8_custom_check_reperform/bank<%-extname%>">고객확인재이행 - 은행선택 </a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./8_custom_check_reperform/account<%-extname%>">고객확인재이행 - 계좌정보입력 (에러메세지2개)</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./8_custom_check_reperform/account_2<%-extname%>">고객확인재이행 - 1원 입금확인</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./8_custom_check_reperform/add<%-extname%>">고객확인재이행 - 추가 고객 확인</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./8_custom_check_reperform/id<%-extname%>">고객확인재이행 - 신분증정보확인(주민등록증)</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./8_custom_check_reperform/drive<%-extname%>">고객확인재이행 - 신분증정보확인(운전면허증)</a></dt>
+      </dl>
+      <dl>
+        <dl>
+          <dt><a href="./8_custom_check_reperform/mobile_id<%-extname%>">고객확인재이행 - EDD수행(모바일신분증 확인)</a></dt>
+        </dl>
+        <dl>
+          <dt><a href="./8_custom_check_reperform/reject<%-extname%>">고객확인재이행 - 고객확인 재이행 불가안내</a></dt>
+        </dl>
+        <dl>
+          <dt><a href="./8_custom_check_reperform/success<%-extname%>">고객확인재이행 - 고객확인 재이행 완료</a></dt>
+        </dl>
+    </div>
+
+    <div>
+      <h2>보유한도 상향</h2>
+      <dl>
+        <dt><a href="./7_limit_custom_check/index<%-extname%>">보유한도상향 - 고객확인 & 고객정보입력 (국내,해외 필드 모두 있음) </a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./7_limit_custom_check/add<%-extname%>">보유한도상향 - 추가 고객 확인</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./7_limit_custom_check/reject<%-extname%>">보유한도상향 - 거절</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./7_limit_custom_check/success<%-extname%>">보유한도상향 - 성공</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./7_limit_custom_check/agree<%-extname%>">보유한도상향 - 약관동의</a></dt>
+      </dl>
+    </div>
+
+
+    <div>
+      <h2>약관</h2>
+      <dl>
+        <dt><a href="./99_payment_1_agree/index<%-extname%>">약관동의</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./99_terms/index<%-extname%>">NHN KCP-번개장터 선불전자지급수단 서비스 이용 약관</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./99_terms/index2<%-extname%>">개인정보 수집 및 이용 동의_번개머니 가입</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./99_terms/index3<%-extname%>">개인정보 수집 및 이용 동의_환급계좌 등록</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./99_terms/index4<%-extname%>">번개머니 서비스 이용 정책</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./99_terms/index5<%-extname%>">개인정보 제3자 제공 동의</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./99_terms/index6<%-extname%>">올리브영 선불전자지급수단 서비스 이용약관</a></dt>
+      </dl>
+      <dl>
+        <dt><a href="./99_terms/index7<%-extname%>">선불충전금 보호조치에 대한 내용</a></dt>
+      </dl>
+    </div>
+
+    <div>
+      <h2>레이어팝업</h2>
+      <dl>
+        <dt><a href="./0_alert/index<%-extname%>">케이스확인 </a></dt>
+      </dl>
+    </div>
+    </section>
+  </div>
+</body>
+
+</html>

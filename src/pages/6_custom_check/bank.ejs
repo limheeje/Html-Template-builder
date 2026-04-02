@@ -1,0 +1,40 @@
+<%
+defineExport({
+  head:{
+    title: '고객확인 - 은행선택'
+  },
+  data: {
+    headerSubInfo: {
+      title: "번개머니 가입",
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '동의하기',
+          disabled: true
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `고객 확인`,
+        description: `본인 명의로 개설된 계좌의 은행을 선택해주세요.`
+      }
+    })%>
+    <div>
+      <%-include($rootSrc('@/components/common/BsCardComponyTemplate'))%>
+    </div>
+
+
+  </div>
+</div>
+<!-- //contents -->

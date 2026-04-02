@@ -1,0 +1,32 @@
+<%
+defineExport({
+  head:{
+    title: '번개머니가입_제한이용안내'
+  },
+  data: {
+    headerSubInfo: {
+      title: "서비스 해지"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '확인',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <%- include($rootSrc('@/components/common/BsVerticalAlert'), {
+    props:{
+      iconType: 'check',
+      title: `번개머니/간편결제 해지 완료`,
+      description: `번개머니/간편결제 서비스 해지가 완료되었습니다.`
+    }
+  })%>
+</div>
+<!-- //contents -->

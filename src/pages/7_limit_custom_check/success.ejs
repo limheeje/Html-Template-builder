@@ -1,0 +1,32 @@
+<%
+defineExport({
+  head:{
+    title: '보유한도상향 - 성공'
+  },
+  data: {
+    headerSubInfo: {
+      title: "보유한도 상향"
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '확인',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <%- include($rootSrc('@/components/common/BsVerticalAlert'), {
+    props:{
+      iconType: 'check',
+      title: `보유한도 상향 완료`,
+      description: `번개머니 보유한도 상향이 완료되었습니다.`
+    }
+  })%>
+</div>
+<!-- //contents -->

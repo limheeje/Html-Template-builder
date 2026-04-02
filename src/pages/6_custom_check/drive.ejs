@@ -1,0 +1,44 @@
+<%
+defineExport({
+  head:{
+    title: '고객확인 - 신분증정보확인(운전면허증)'
+  },
+  data: {
+    headerSubInfo: {
+      title: "번개머니 가입",
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '인증하기',
+          disabled: true
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `신분증 정보 확인`,
+        description: `보유한 신분증을 선택하여 정보를 입력해주세요.`
+      }
+    })%>
+
+
+    <%-include($rootSrc('@/components/page/6_custom_check/IdCheck'), {
+      props: {
+        type: 'drive'
+      }
+    })%>
+
+
+  </div>
+</div>
+<!-- //contents -->

@@ -1,0 +1,39 @@
+<%
+defineExport({
+  head:{
+    title: '약관동의'
+  },
+  data: {
+    headerSubInfo: {
+      title: "번개머니 가입",
+      useBackButton: true
+    },
+    bottomSubInfo: {
+      buttonItems: [
+        {
+          codeName: '다음',
+        }
+      ]
+    }
+  }
+}).bind()
+%>
+
+
+<!-- contents -->
+<div id="contents">
+  <div class="grid-pd">
+    <%-include($rootSrc('@/components/common/BsPageTitle'), {
+      props: {
+        title : `약관동의`,
+        description: `번개머니 가입을 위해 아래의 이용약관에<br> 동의해주세요.`
+      }
+    })%>
+
+
+    <%-include($rootSrc('@/components/common/UITermsItems'))%>
+
+
+  </div>
+</div>
+<!-- //contents -->
